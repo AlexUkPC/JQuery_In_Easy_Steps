@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Interrogation</title>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("ol li").has("span").text("Item: Has Span");
+            if ($("li").parent().is("ol")) {
+                $("#out").text("This is An Ordered List");
+            }
+            var nospan=$("ul li").not($("li").has("span"));
+            nospan.text("Item: Has No Span");
+            if($("li").parent().not("ol")){
+                $("#out2").text("This is An Unordered List");
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <ol>
+        <li>Item</li>
+        <li><span>Item</span></li>
+        <li>Item</li>
+    </ol>
+    <p>Output: <span id="out"></span></p>
+    <hr>
+    <ul>
+        <li>Item</li>
+        <li><span>Item</span> </li>
+        <li>Item</li>
+    </ul>
+    <p>Output: <span id="out2"></span></p>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Traversing Children</title>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("ul").children().text("Child");
+            $("ol li:first-child").siblings().text("Sibling");
+            var i = 0, str = "", parents = $("em").parents();
+            for (; i < parents.length; i++) {
+                str += parents[i].tagName + " | ";
+            }
+            $("#out").text(str + parents.length);
+        });
+    </script>
+</head>
+
+<body>
+    <ul>
+        <li>Son</li>
+        <li>Son</li>
+        <li>Son</li>
+    </ul>
+    <ol>
+        <li>Daughter</li>
+        <li>Daughter</li>
+        <li>Daughter</li>
+    </ol>
+    <div>
+        <p>Paragraph containting <em>Emphatic Text</em></p>
+        <p>Output: <span id="out"></span></p>
+    </div>
+</body>
+
+</html>

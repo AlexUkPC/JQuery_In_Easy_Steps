@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Traverse Next</title>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#item1").next().text("Generated Text");
+            $("#item5").prev().text("Generated Text");
+            var colection = $("#item6").nextUntil($("#item10"));
+            colection.text("Generated Text");
+        });
+    </script>
+</head>
+
+<body>
+    <ol>Traverse next
+        <li id="item1">Item</li>
+        <li id="item2">Item</li>
+        <li id="item3">Item</li>
+        <li id="item4">Item</li>
+        <li id="item5">Item</li>
+    </ol>
+    <ol>Traverse nextUntil
+        <li id="item6">Item</li>
+        <li id="item7">Item</li>
+        <li id="item8">Item</li>
+        <li id="item9">Item</li>
+        <li id="item10">Item</li>
+    </ol>
+</body>
+
+</html>

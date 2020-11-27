@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Get CSS Property</title>
+    <style>
+        ol {
+            color: red;
+        }
+    </style>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#out").text($("ol").css("color"));
+            var list = $("#list");
+            list.css("background-color", "blue");
+            list.css("color", "yellow");
+            list.css("width", "300");
+        });
+    </script>
+
+</head>
+
+<body>
+    <ol>
+        <li>Alpha</li>
+        <li>Bravo</li>
+        <li>Charly</li>
+    </ol>
+    <p>Output: <span id="out"></span></p>
+    <hr>
+    <ol id="list">
+        <li>Alpha</li>
+        <li>Bravo</li>
+        <li>Charly</li>
+    </ol>
+</body>
+
+</html>
