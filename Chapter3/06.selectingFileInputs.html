@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selecting file inputs</title>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("input[type='file'").change(
+                function() { $("#out").text($(this).val()); }
+            );
+
+            var img = $("input[type='image']");
+            img.val("Action Button");
+            $("#out2").text(img.val());
+        });
+    </script>
+</head>
+
+<body>
+    <form enctype="multipart/form-data" method="post" action="file.php">
+        <input type="file" name="userfile" size="50">
+        <input type="submit">
+    </form>
+    <p>Output: <span id="out"></span></p>
+    <hr>
+    <form>
+        <input type="image" src="06.selectingFileInputs.png" alt="Action">
+    </form>
+    <p>Output: <span id="out2"></span></p>
+</body>
+
+</html>

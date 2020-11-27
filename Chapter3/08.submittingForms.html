@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submitting forms</title>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("form").submit(
+                function () {
+                    if (confirm("Submit Form?")) {
+                        return true;
+                    }
+                    else $("#out").text("Form Submisson Cancelled");
+                    return false;
+                }
+            );
+        });
+    </script>
+</head>
+
+<body>
+    <form action="submit.php" method="post">
+        Name: <input type="text" name="name">
+        City: <input type="text" name="city">
+        <br><br><input type="submit">
+    </form>
+    <p>Output: <span id="out"></span></p>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selecting by ability</title>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var box3 = $("input[type='text']").eq(2);
+            box3.prop("disabled", true);
+            if (box3.prop("disabled") === true) {
+                $("#out").text(box3.val() + " Disabled")
+            }
+
+            var box32 = $("input[type='text2']").eq(2);
+            box32.prop("disabled", false);
+            if (box32.prop("disabled") === false) {
+                $("#out2").text(box3.val() + " Enabled")
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <form>
+        <input type="text" name="A" value="Alpha">
+        <input type="text" name="B" value="Bravo">
+        <input type="text" name="C" value="Charlie">
+    </form>
+    <p>Output: <span id="out"></span></p>
+    <hr>
+    <form>
+        <input type="text2" name="A" value="Alpha" disabled>
+        <input type="text2" name="B" value="Bravo" disabled>
+        <input type="text2" name="C" value="Charlie" disabled>
+    </form>
+    <p>Output: <span id="out2"></span></p>
+</body>
+
+</html>

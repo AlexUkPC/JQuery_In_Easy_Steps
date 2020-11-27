@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selecting options</title>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var opt3 = $("option[value='THREE']");
+            opt3.prop("selected", true);
+            if (opt3.prop("selected") === true) {
+                $("#out").text(opt3.val() + " Selected");
+            }
+            $("select").change(
+                function () {
+                    var pick = $("option").filter(":selected");
+                    $("#out").text(pick.val() + " Selected");
+                }
+            );
+
+        });
+    </script>
+</head>
+
+<body>
+    <form>
+        <select>
+            <option value="ONE">ONE</option>
+            <option value="TWO">TWO</option>
+            <option value="THREE">THREE</option>
+        </select>
+    </form>
+    <p>Output: <span id="out"></span></p>
+
+</body>
+
+</html>
