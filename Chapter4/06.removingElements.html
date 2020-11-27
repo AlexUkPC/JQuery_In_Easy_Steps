@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Removing elements</title>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var parent = $("#box"), child = $("#txt");
+            child.empty();
+            $("#out1").text(parent.html());
+            child.remove();
+            $("#out2").text(parent.html());
+
+            var fields = $("input[type='text']");
+            fields.focus(function () { $(this).css("background","red"); });
+            fields.blur(function () { $(this).css("background","white"); });
+            fields.eq(0).remove().appendTo("form");
+            fields.eq(1).detach().appendTo("form");
+        });
+    </script>
+</head>
+
+<body>
+    <div id="box">Division Text
+        <p id="txt">Paragraph Text <span>Span Text</span></p>
+    </div>
+    <p>Paragraph Emptied: <span id="out1"></span>
+        <br>Paragraph Removed: <span id="out2"></span></p>
+    <hr>
+    <form>
+        <input type="text" value="Removed">
+        <input type="text" value="Detached">
+    </form>
+</body>
+
+</html>

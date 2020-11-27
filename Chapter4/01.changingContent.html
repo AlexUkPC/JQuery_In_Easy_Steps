@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changing content</title>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#new").text(
+                function (i, txt) {
+                    $("#old").text(txt);
+                    return "C Programming in easy steps";
+                }
+            );
+
+            $("ul").html(
+                function (i, html) {
+                    $("#out").text(html);
+                    return "<li>Damson<li>Elderberry<li>Fig";
+                }
+            );
+        });
+    </script>
+</head>
+
+<body>
+    <p>New Text:
+        <span id="new">Java in easy steps</span>
+    </p>
+    <p>Old Text:
+        <span id="old"></span>
+    </p>
+    <hr>
+    <ul>
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Cherry</li>
+    </ul>
+    <p>Output: <span id="out"></span></p>
+
+</body>
+
+</html>

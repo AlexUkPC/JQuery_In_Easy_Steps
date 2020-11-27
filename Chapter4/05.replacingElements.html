@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Replacing elements</title>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var list = $("ul#1");
+            $("#out").text(list.html());
+            list.replaceWith("<ol id='1'>" + list.html() + "</ol>");
+            $("<li>List Item</li>").replaceAll($("ol#1>li"));
+
+            var list2 = $("ol#2");
+            list2.clone().insertAfter(list2);
+            list2.css("list-style-type", "upper-alpha");
+            list2.html("<li>Alpha<li>Bravo<li>Charlie");
+        });
+    </script>
+</head>
+
+<body>
+    <ul id="1">
+        <li>ONE</li>
+        <li>TWO</li>
+        <li>THREE</li>
+    </ul>
+    <p>Output: <span id="out"></span></p>
+    <hr>
+    <ol id="2">
+        <li>ONE</li>
+        <li>TWO</li>
+        <li>THREE</li>
+    </ol>
+</body>
+
+</html>

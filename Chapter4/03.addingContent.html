@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adding content</title>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var list=$("ul#1");
+            list.before("+ BEFORE");
+            list.after("+ AFTER");
+            list.prepend("< PREPEND");
+            list.append("< APPEND");
+
+            var list2=$("ul#2");
+            $("<p>+ BEFORE</p>").insertBefore(list2);
+            $("<p>+ AFTER</p>").insertAfter(list2);
+            $("<span>< PREPEND</span>").prependTo(list2);
+            $("<span>< APPEND</span>").appendTo(list2);
+        });
+    </script>
+</head>
+
+<body>
+    <ul id="1">
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Cherry</li>
+    </ul>
+    <hr>
+    <ul id="2">
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Cherry</li>
+    </ul>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changing Attributes</title>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var img = $("img[alt='Firefox']");
+            img.attr({ "src": "02.changingAttributes-tbird.png", "alt": "Thunderbird" });
+            $("#out").text(img.attr("alt"));
+
+            var b1 = $("#box1"), b2 = $("#box2");
+            b1.removeAttr("checked");
+            $("#out1").text(b1.prop("checked") + " | " + b1.attr("checked"));
+            $("#out2").text(b2.prop("checked") + " | " + b2.attr("checked"));
+        });
+    </script>
+</head>
+
+<body>
+    <p><img src="02.changingAttributes-ffox.png" alt="Firefox">
+        <br>Output: <span id="out"></span></p>
+    <hr>
+    <form>
+        <input type="checkbox" checked id="box1">
+        <input type="checkbox" checked id="box2">
+    </form>
+    <p>Box1 Checked?: <span id="out1"></span>
+        <br>Box2 Checked?: <span id="out2"></span></p>
+</body>
+
+</html>
