@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detecting keys</title>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#txt").keypress(function (e) {
+                $(this).val(null);
+                var str = "Non-Alpha";
+                if ((e.which > 64) && (e.which < 91)) str = "Uppercase";
+                else if ((e.which > 96) && (e.which < 123)) str = "Lowerrcase";
+                $("#out").text(str + " Character Pressed");
+            });
+
+            var txt2 = $("#txt2"), out2 = $("#out2");
+            txt2.keydown(function (e) {
+                out2.text("Key " + e.which + " Down");
+            });
+            txt2.keyup(function (e) {
+                $(this).val(null);
+                out2.text("Key " + e.which + " Up");
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <form>
+        <input type="text" id="txt" maxlength="1">
+    </form>
+    <p>Output: <span id="out"></span></p>
+    <hr>
+    <form>
+        <input type="text" id="txt2" maxlength="1">
+    </form>
+    <p>Output: <span id="out2"></span></p>
+</body>
+
+</html>

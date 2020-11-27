@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotting movement</title>
+    <style>
+        #zone,
+        #zone2 {
+            border: 2px dashed gray;
+            width: 200px;
+            height: 50px;
+            background: none;
+        }
+    </style>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#zone").mousemove(function (e) {
+                var left = e.pageX;
+                var top = e.pageY;
+                $(this).text("X: " + left + " Y: " + top);
+            });
+
+            $("#zone2").mousemove(function (e) {
+                var left2 = e.pageX - this.offsetLeft;
+                var top2 = e.pageY - this.offsetTop;
+                $(this).text("X: " + left2 + " Y: " + top2);
+                if (left2 < 100) $(this).css("background", "yellow");
+                else $(this).css("background", "aqua");
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+    <div id="zone">Mouse Zone</div>
+    <hr>
+    <div id="zone2">Mouse Zone</div>
+</body>
+
+</html>

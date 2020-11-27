@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guarding borders</title>
+    <style>
+        div{background: aqua;width: 100px;float: left;margin: 10px;}
+        p{background: yellow;margin: 10px;}
+        #zone {
+            border: 2px dashed gray;
+            width: 200px;
+            height: 50px;
+            background: none;
+        }
+    </style>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var zone = $("#zone").mouseenter(function () {
+                $(this).text("Enter").css("background", "yellow");
+            });
+            zone.mouseleave(function () {
+                $(this).text("Leave").css("background", "aqua");
+            });
+
+            var en=0,ov=0;
+            $("#d1").mouseenter(function(){
+                $("#p1").text(++en +" Entries");
+            });
+            $("#d2").mouseover(function(){
+                $("#p2").text(++ov + " Overs");
+            })
+
+        });
+    </script>
+</head>
+
+<body>
+    <div id="zone">Mouse Zone</div>
+
+    <div id="d1"><p id="p1">0 Entries</p></div>
+    <div id="d2"><p id="p2">0 Overs</p></div>
+</body>
+
+</html>

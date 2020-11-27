@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detecting presence</title>
+    <style>
+        #zone {
+            border: 2px dashed gray;
+            width: 200px;
+            height: 50px;
+        }
+
+        #zone2 {
+            border: 2px dashed gray;
+            width: 200px;
+            height: 50px;
+        }
+    </style>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var zone = $("#zone").mouseover(function () {
+                $(this).text("Over").css("background", "yellow");
+            });
+            zone.mouseout(function () {
+                $(this).text("Out").css("background", "aqua");
+            });
+
+            var zone2= $("#zone2").mouseover(on="Mouse Over", function(){
+                $(this).text(on).css("background","lime");
+            });
+            zone2.mouseout({off:"Mouse Out",hue:"fuchsia"}, function(e){
+                $(this).text(e.data.off);
+                $(this).css("background",e.data.hue);
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="zone">Mouse Zone</div>
+    <hr>
+    <div id="zone2">Mouse Zone</div>
+</body>
+
+</html>

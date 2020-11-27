@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feeling pressure</title>
+    <style>
+        #box {
+            border: 2px dashed gray;
+            width: 200px;
+            height: 50px;
+        }
+
+        #box2 {
+            border: 2px dashed gray;
+            width: 300px;
+            height: 50px;
+        }
+    </style>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var box = $("#box").mousedown(function () {
+                $(this).css("background", "yellow");
+                $(this).text("Mouse Button Pressed");
+            });
+            box.mouseup(function () {
+                $(this).css("background", "aqua");
+                $(this).text("Mouse Button Released");
+            });
+
+            var box2 = $("#box2").mousedown(function () {
+                $(this).css("background", "lime");
+                $(this).text("Mouse Button Down Triggered");
+            });
+            box2.trigger("mousedown");
+        });
+    </script>
+</head>
+
+<body>
+    <div id="box">Click Box</div>
+    <hr>
+    <div id="box2">Click Box</div>
+</body>
+
+</html>
