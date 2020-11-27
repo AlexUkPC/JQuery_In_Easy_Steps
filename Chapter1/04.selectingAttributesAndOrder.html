@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Select Attribute</title>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("[lang='fr']").text("Generated Content");
+            $("ul li:even").text("Generated Content");
+        });
+    </script>
+</head>
+
+<body>
+    <ol>
+        <li lang="fr">Attribute Item</li>
+        <li lang="fr">Attribute Item</li>
+        <li lang="en">Attribute Item</li>
+    </ol>
+    <ul>
+        <li>Even Item 0</li>
+        <li>Odd Item 1</li>
+        <li>Even Item 2</li>
+
+    </ul>
+</body>
+
+</html>

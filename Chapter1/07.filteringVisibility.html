@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Select Hidden</title>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var i = 0, str = "Hidden: ";
+            var hid = $("body").find("*").filter(":hidden");
+            for (; i < hid.length; i++) {
+                str += (hid[i].tagName + " | ");
+            }
+            $("#out").text(str + hid.length);
+        });
+    </script>
+</head>
+
+<body>
+    <div style="display: none;"><b>Hiddent Text</b></div>
+    <p>Output: <span id="out"></span></p>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery Select Identity</title>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#two").text("Generated Content");
+            $("li.rest").text("Generated Content");
+        });
+    </script>
+</head>
+
+<body>
+    <ol>
+        <li id="one">ID Item</li>
+        <li id="two">ID Item</li>
+        <li id="one">ID Item</li>
+    </ol>
+    <ol>
+        <li class="start">Class Item</li>
+        <li class="rest">Class Item</li>
+        <li class="rest">Class Item</li>
+    </ol>
+</body>
+
+</html>
