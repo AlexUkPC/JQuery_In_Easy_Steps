@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plugging-in dialogs</title>
+    <style>
+        #pop {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            display: none;
+            z-index: 1;
+        }
+
+        #dlg {
+            width: 200px;
+            margin: 50px auto;
+            padding: 5px;
+            border: 1px solid black;
+            background: white;
+            z-index: 2;
+        }
+    </style>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script src="jquery.modal-plugin.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn").on("click", function () {
+                $("#pop").modal({ msg: "That's All Folks!" }).css("color", "red");
+            });
+            $("#end").on("click", function () {
+                $("#pop").modal({ vis: false });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <p><button id="btn">Call Plugin</button></p>
+    <div id="pop">
+        <div id="dlg"><b>Dialog</b>
+            <p id="out">_</p>
+            <hr>
+            <button id="end">Close</button>
+        </div>
+    </div>
+</body>
+
+</html>

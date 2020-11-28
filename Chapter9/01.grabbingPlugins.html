@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grabbing plugins</title>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script src="jquery.get-outer-html.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn").on("click", function () {
+                $("#out").text($("div").getOuterHTML());
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div>Push The Button To Reveal Outer HTML </div>
+    <p><button id="btn">Call Plugin</button>
+        <hr>
+        Output: <span id="out"></span>
+    </p>
+</body>
+
+</html>
