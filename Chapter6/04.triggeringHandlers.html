@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triggering handlers</title>
+    <style>
+        #box {
+            border: 2px dashed gray;
+            width: 200px;
+            height: 50px;
+        }
+    </style>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            function handler(event) {
+                $("#out").text(event.data.action);
+                $("#box").css("background", event.data.bg);
+            }
+            $("#box").on("mouseenter", { action: "Mouse Enter", bg: "lime" }, handler);
+            $("#box").on("mouseleave", { action: "Mouse Leave", bg: "fuchsia" }, handler);
+            $("#entr-btn").on("click", function () {
+                $("#box").trigger("mouseenter");
+                $("#out").append(" Triggered");
+            });
+            $("#leave-btn").on("click", function () {
+                $("#box").trigger("mouseleave");
+                $("#out").append(" Triggered");
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+    <div id="box">Active Box</div>
+    <p><button id="entr-btn">Enter</button>
+        <button id="leave-btn">Leave</button>
+    </p>
+    <p>Output: <span id="out"></span></p>
+</body>
+
+</html>

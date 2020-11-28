@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Removing handlers</title>
+    <style>
+        #box {
+            border: 2px dashed gray;
+            width: 200px;
+            height: 50px;
+        }
+    </style>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var num = 0, hue = null, box = $("#box");
+            function run() {
+                num++;
+                hue = (num % 2 === 0) ? "aqua" : "yellow";
+                $(this).css("background", hue);
+                $(this).text("Border Crossing #" + num);
+            }
+            $("#on-btn").on("click", function () {
+                box.on("mouseenter mouseleave", run);
+                box.css("background", "lime");
+            });
+            $("#off-btn").on("click", function () {
+                box.off("mouseenter mouseleave", run);
+                box.css("background", "fuchsia");
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="box">Active Box</div>
+    <p><button id="on-btn">On</button>
+        <button id="off-btn">Off</button>
+    </p>
+</body>
+
+</html>

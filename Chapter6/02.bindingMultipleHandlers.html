@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binding multiple handlers</title>
+    <style>
+        #zone {
+            border: 2px dashed gray;
+            width: 200px;
+            height: 50px;
+        }
+    </style>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#zone").on(
+                {
+                    mouseenter: function () {
+                        $(this).css("background", "yellow");
+                        $("#out").text("Mouse Entered");
+                    },
+                    mousedown: function () {
+                        $(this).css("background", "lime");
+                        $("#out").text("Mouse Button Down");
+                    },
+                    mouseup: function () {
+                        $(this).css("background", "fuchsia");
+                        $("#out").text("Mouse Button Up");
+                    },
+                    mouseleave: function () {
+                        $(this).css("background", "aqua");
+                        $("#out").text("Mouse Exited");
+                    }
+                }
+            );
+        });
+    </script>
+</head>
+
+<body>
+    <div id="zone">Click Zone</div>
+    <p>Output: <span id="out"></span></p>
+</body>
+
+</html>

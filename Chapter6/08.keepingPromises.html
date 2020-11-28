@@ -1,0 +1,44 @@
+<!-- Parity btn works with jQuery-3.5.1 ,but Call btn works with jQuery-1.11.0 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keeping promises</title>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script src="jquery-1.11.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var dfd = null, out = $("#out");
+            function getpromise() {
+                dfd = $.Deferred();
+                out.text(dfd.state());
+                setTimeout(function () {
+                    var n = Math.ceil(Math.random() * 100);
+                    (n % 2 !== 0) ? dfd.reject(n) : dfd.resolve(n);
+                }, 1000);
+                return dfd.promise();
+            }
+            $("#get-btn").on("click", function () {
+                var prm = $.when(getpromise());
+                prm.done(function (n) { out.text(this.state()); });
+                prm.fail(function (n) { out.text(this.state()); });
+                prm.always(function (n) { out.append(" " + n); });
+            })
+            $("#eval-btn").on("click", function () {
+                var prm = $.when(getpromise());
+                prm.done(function (n) { out.text(n + " Even"); });
+                prm.fail(function (n) { out.text(n + " Odd"); });
+            })
+        });
+    </script>
+</head>
+
+<body>
+    <button id="get-btn">Call</button>
+    <button id="eval-btn">Parity</button>
+    <p>Output: <span id="out"></span></p>
+</body>
+
+</html>

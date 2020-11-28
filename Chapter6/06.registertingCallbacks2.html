@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registering callbacks2</title>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var callbacks = $.Callbacks();
+            callbacks.add(function(str){$("#out").text(str);});
+            callbacks.add(function(str){alert(str);});
+            $("#btn").on("click",function(){
+                callbacks.fire("Hello from the Callbacks List!");
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="btn">Call</button>
+    <p>Output: <span id="out"></span></p>
+</body>
+</html>

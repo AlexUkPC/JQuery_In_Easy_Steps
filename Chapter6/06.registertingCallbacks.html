@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registering callbacks</title>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            function process(arg,callback){
+                $("#out").html("<br>From Caller: "+arg);
+                callback(2);
+            }
+            $("#btn").on("click",function(){
+                process(1,function(num){
+                    $("#out").append("<br>From Callback: "+num);
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="btn">Call</button>
+    <p>Output: <span id="out"></span></p>
+</body>
+</html>
