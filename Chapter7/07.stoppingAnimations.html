@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopping animations</title>
+    <style>
+        p {
+            position: absolute;
+            top: 120px;
+        }
+
+        div {
+            padding: 5px;
+            width: 200px;
+            height: 30px;
+            background: lime;
+            border: 2px dashed gray;
+        }
+    </style>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $("#run-btn").on("click", function () {
+                $("div").slideToggle(2000);
+                $("#out").text("Running...");
+                $("#stop-btn, #end-btn").removeAttr("disabled");
+            });
+            $("#stop-btn").on("click", function () {
+                $("div").stop();
+                $("#out").text("Stopped At " + $("div").css("height"));
+                $("#end-btn").attr("disabled", "true");
+            });
+            $("#end-btn").on("click", function () {
+                $("div").stop(true, true);
+                $("#out").text("Done");
+                $("#stop-btn").attr("disabled", "true");
+            });
+
+
+        });
+    </script>
+</head>
+
+<body>
+    <div>Button Control Animation</div>
+    <p>
+        <button id="run-btn">Run</button>
+        <button id="stop-btn">Stop</button>
+        <button id="end-btn">End</button>
+        <span id="out"></span>
+    </p>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fading to levels</title>
+    <style>
+        div {
+            padding: 5px;
+            width: 200px;
+            height: 30px;
+            background: black;
+            color: white;
+        }
+
+        p {
+            position: absolute;
+            top: 120px;
+        }
+    </style>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn25").on("click", function () {
+                $("div").fadeTo("slow",0.25, function () {
+                    $("#out").text("Silver - 25%");
+                });
+            });
+            $("#btn100").on("click", function () {
+                $("div").fadeTo("slow",1.0, function () {
+                    $("#out").text("Black - 100%");
+                });
+            });
+           
+        });
+    </script>
+</head>
+
+<body>
+    <div>Button Fade To Levels</div>
+    <p>
+        <button id="btn25">Quarter</button>
+        <button id="btn100">Maximum</button>
+        <span id="out"></span>
+    </p>
+</body>
+
+</html>

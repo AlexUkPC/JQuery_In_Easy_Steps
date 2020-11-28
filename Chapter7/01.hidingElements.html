@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiding elements</title>
+    <style>
+        div {
+            padding: 5px;
+            width: 200px;
+            height: 30px;
+            background: yellow;
+            border: 2px dashed gray;
+        }
+
+        p {
+            position: absolute;
+            top: 120px;
+        }
+    </style>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#hide-btn").on("click", function () {
+                $("div").hide("slow", function () {
+                    $("#out").text("Content Hidden");
+                });
+            });
+            $("#show-btn").on("click", function () {
+                $("div").show("slow", function () {
+                    $("#out").text("Content Visible");
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div>Button Change Visibility</div>
+    <p><button id="hide-btn">Hide</button>
+        <button id="show-btn">Show</button>
+        <br>Output: <span id="out"></span></p>
+</body>
+
+</html>

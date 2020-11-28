@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sliding elements</title>
+    <style>
+        div {
+            padding: 5px;
+            width: 200px;
+            height: 30px;
+            background: aqua;
+            border: 2px dashed gray;
+        }
+
+        p {
+            position: absolute;
+            top: 120px;
+        }
+    </style>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#up-btn").on("click", function () {
+                $("div").slideUp("slow", function () {
+                    $("#out").text("Content Hidden");
+                });
+            });
+            $("#dn-btn").on("click", function () {
+                $("div").slideDown("slow", function () {
+                    $("#out").text("Content Visible");
+                });
+            });
+            $("#tog-btn").on("click", function () {
+                $("div").slideToggle("slow", function () {
+                    if ($("div").css("display") === "none")
+                        $("#out").text("Content Hidden");
+                    else $("#out").text("Content Visible");
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div>Button Slide Visibility</div>
+    <p>
+        <button id="up-btn">Up</button>
+        <button id="dn-btn">Down</button>
+        <button id="tog-btn">Toggle</button>
+        <span id="out"></span>
+    </p>
+</body>
+
+</html>

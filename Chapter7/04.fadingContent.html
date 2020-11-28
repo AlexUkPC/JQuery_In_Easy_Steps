@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fading content</title>
+    <style>
+        div {
+            padding: 5px;
+            width: 200px;
+            height: 30px;
+            background: fuchsia;
+            border: 2px dashed gray;
+        }
+
+        p {
+            position: absolute;
+            top: 120px;
+        }
+    </style>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#out-btn").on("click", function () {
+                $("div").fadeOut("slow", function () {
+                    $("#out").text("Content Hidden");
+                });
+            });
+            $("#in-btn").on("click", function () {
+                $("div").fadeIn("slow", function () {
+                    $("#out").text("Content Visible");
+                });
+            });
+            $("#tog-btn").on("click", function () {
+                $("div").fadeToggle("slow", function () {
+                    if ($("div").css("display") === "none")
+                        $("#out").text("Content Hidden");
+                    else $("#out").text("Content Visible");
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div>Button Fade Visibility</div>
+    <p>
+        <button id="out-btn">Fade Out</button>
+        <button id="in-btn">Fade In</button>
+        <button id="tog-btn">Toggle</button>
+        <span id="out"></span>
+    </p>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animating elements</title>
+    <style>
+        div,
+        p {
+            position: absolute;
+            top: 120px;
+        }
+
+        div {
+            top: 80px;
+            padding: 5px;
+            width: 200px;
+            height: 30px;
+            background: fuchsia;
+            border: 2px dashed gray;
+        }
+    </style>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var tog = false;
+            function report() {
+                $("#out").text("Done. Left Now " + $(this).css("left"))
+            }
+            $("#btn").on("click", function () {
+                tog = !tog;
+                if (tog)
+                    $("div").animate({ left: "100px" }, "slow", report);
+                else
+                    $("div").animate({ left: "10px" }, "slow", report);
+            });
+
+
+        });
+    </script>
+</head>
+
+<body>
+    <div>Button Animates Content</div>
+    <p>
+        <button id="btn">Animate</button>
+        <span id="out"></span>
+    </p>
+</body>
+
+</html>
