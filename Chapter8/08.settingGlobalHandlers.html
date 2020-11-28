@@ -1,0 +1,39 @@
+<!-- Copy content of all files in C:\Abyss Web Server\htdocs or start LiveServer-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setting global handlers</title>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var go = function (file) {
+                $("ol").empty();
+                $.ajax(file);
+            }
+
+            $("#good").on("click", function () { go("07.handlingFailure.html") });
+            $("#fail").on("click", function () { go("ghost.html") });
+
+            var at = function (event) {
+                var et = event.type;
+                var ms = new Date().getMilliseconds();
+                $("ol").append("<li>" + et + " at " + ms)
+            }
+            $(document).ajaxStart(at).ajaxSend(at).ajaxSuccess(at).ajaxError(at).ajaxComplete(at).ajaxStop(at);
+        });
+    </script>
+</head>
+
+<body>
+    <p>
+        <button id="good">Good AJAX Request</button>
+        <button id="fail">Fail AJAX Request</button>
+    </p>
+    <ol></ol>
+    <p>Copy content of all files in C:\Abyss Web Server\htdocs or start LiveServer</p>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!-- Copy content of all files in C:\Abyss Web Server\htdocs or start LiveServer-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing loads</title>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            function assess(statusTxt, xhr) {
+                if (statusTxt == "success")
+                    $("#out").text("External content loaded succesfully!");
+                if (statusTxt == "error") {
+                    $("div").text(xhr.statusText);
+                    $("#out").text(xhr.status);
+                }
+            }
+            $("#btn-a").on("click", function () {
+                $("div").load("01.loadingContent.txt #content", function (responseTxt, statusTxt, xhr) {
+                    assess(statusTxt, xhr);
+                });
+            });
+            $("#btn-b").on("click", function () {
+                $("div").load("none.txt", function (responseTxt, statusTxt, xhr) {
+                    assess(statusTxt, xhr);
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div>Push The Load Button To Request Content</div>
+    <p><button id="btn-a">Load A</button>
+        <button id="btn-b">Load B</button>
+        <br>Output: <span id="out">???</span>
+    </p>
+    <hr>
+    <p>Copy content of all files in C:\Abyss Web Server\htdocs or start LiveServer</p>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!-- Copy content of all files in C:\Abyss Web Server\htdocs !!! Not workin on LiveServer -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting response</title>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.get("04.gettingResponse.txt", function (msg) {
+                $("#out").text(msg);
+            });
+            $.getScript("04.gettingResponse.js");
+            $("#get-btn").on("click", function () {
+                $.getJSON("04.gettingResponse.php", { page: document.title }, report);
+            });
+            $("#post-btn").on("click", function () {
+                $.post("04.gettingResponse.php", { page: document.title }, report, "json");
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <p><button id="get-btn">GET</button>
+        <button id="post-btn">POST</button></p>
+    <p>Output <span id="out"></span></p>
+    <hr>
+    <p>Copy content of all files in C:\Abyss Web Server\htdocs !!! Not workin on LiveServer</p>
+</body>
+
+</html>

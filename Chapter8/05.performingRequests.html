@@ -1,0 +1,28 @@
+<!-- Copy content of all files in C:\Abyss Web Server\htdocs or start LiveServer-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performing requests</title>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn").on("click",function(){
+                $.ajax({
+                    url: "05.performingRequests.txt",
+                    cache: false,
+                    success: function(msg){$("#out").text(msg);},
+                    complete: function(){$("#out").append("Done");}
+                    
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <p><button id="btn">Send AJAX Request</button></p>
+    <p>Output: <span id="out"></span></p>
+    <p>Copy content of all files in C:\Abyss Web Server\htdocs or start LiveServer</p>
+</body>
+</html>

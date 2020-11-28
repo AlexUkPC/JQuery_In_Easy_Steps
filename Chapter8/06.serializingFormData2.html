@@ -1,0 +1,34 @@
+<!-- Copy content of all files in C:\Abyss Web Server\htdocs !!! Not workin on LiveServer-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serializing form data2</title>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn").on("click", function () {
+                $.ajax({
+                    url: "06.serializingFormData2.php",
+                    cache: false,
+                    data: $("form").serialize(),
+                    success: function (msg) { $("#out").text(msg) }
+                })
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <form>
+        <input type="text" name="fname" value="Elmer">
+        <input type="text" name="lname" value="Fudd">
+        <input type="button" value="Send AJAX Request" id="btn">
+    </form>
+    <p>Output: <span id="out"></span></p>
+    <p>Copy content of all files in C:\Abyss Web Server\htdocs !!! Not workin on LiveServer</p>
+</body>
+
+</html>

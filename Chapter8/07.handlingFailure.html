@@ -1,0 +1,42 @@
+<!-- Copy content of all files in C:\Abyss Web Server\htdocs !!! Not workin on LiveServer-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handling failure</title>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+           $("form").on("submit",function(event){
+               event.preventDefault();
+               $.ajax({
+                   url: "07.handlingFailure.php",
+                   cache: false,
+                   data:$(this).serialize(),
+                   success: function(result,status,xhr){
+                       $("span").text(result)
+                   },
+                   error: function(xhr,status,error){
+                       $("span").text(error)
+                   }
+               })
+           })
+        });
+    </script>
+</head>
+
+<body>
+    <form>
+        <input type="text" name="num">
+        <br>
+        <input type="submit">
+        <br>
+        <span>Please Enter A Number 1 - 9 </span>
+    </form>
+    
+    <p>Copy content of all files in C:\Abyss Web Server\htdocs !!! Not workin on LiveServer</p>
+</body>
+
+</html>

@@ -1,0 +1,5 @@
+<p style="background: aqua;">
+    <span id="content" style="background: yellow;">Web Server content</span>
+    supplied by Ajax Response
+</p>
+<img src="01.loadingContent.png">
